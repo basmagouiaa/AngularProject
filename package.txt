@@ -1,0 +1,5 @@
+npm install @auth0/angular-jwt
+ng generate service services/auth
+ng generate service services/auth-interceptor
+ng g c components/login
+
