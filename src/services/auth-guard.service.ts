@@ -13,6 +13,18 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['/login']);
       return false;
     }
+    const userRole = this.authService.getUserRole(); // Obtenez le rôle de l'utilisateur
+
+    if (userRole === 'Admin') {
+      this.router.navigate(['/dashboard']); // Redirigez l'admin vers /dashboard
+      return true;
+    } else if (userRole === 'Client') {
+      this.router.navigate(['/']); // Redirigez le client vers /home
+      return true;
+    } else {
+      this.router.navigate(['/login']); // Redirigez les autres utilisateurs vers /login
+      return false;
+    }
     return true;
   }
 }

@@ -60,4 +60,9 @@ export class AuthService {
   private hasToken(): boolean {
     return !!localStorage.getItem(this.tokenKey);
   }
+
+  getUserRole(): string {
+    // Implémentez votre logique pour récupérer le rôle de l'utilisateur
+    return JSON.parse(localStorage.getItem('user') || '{}').role; // Exemple simple avec un rôle stocké
+  }
 }

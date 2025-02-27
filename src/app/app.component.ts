@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Restaurant';
+  readonly user = JSON.parse(localStorage.getItem('user') || '{}');
+  ngOnInit(): void {
+    console.log(this.user);
+  }
 }
