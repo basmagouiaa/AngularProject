@@ -1,0 +1,61 @@
+<app-header></app-header>
+<div class="reservation-container" style="margin-top: 100px;">
+    <h2>Mes Réservations</h2>
+  
+    <!-- Search bar -->
+    <mat-form-field appearance="outline" class="search-field" *ngIf="(dataSource?.filteredData ?? []).length != 0">
+      <mat-label>Rechercher</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Rechercher une réservation...">
+    </mat-form-field>
+  
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="(dataSource?.filteredData ?? []).length != 0">
+  
+      <!-- ID -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let reservation">{{ reservation.id }}</td>
+      </ng-container>
+  
+      <!-- StartTime -->
+      <ng-container matColumnDef="startTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Début</th>
+        <td mat-cell *matCellDef="let reservation">
+          {{ reservation.startTime | date:'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+  
+      <!-- EndTime -->
+      <ng-container matColumnDef="endTime">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fin</th>
+        <td mat-cell *matCellDef="let reservation">
+          {{ reservation.endTime | date:'dd/MM/yyyy' }}
+        </td>
+      </ng-container>
+  
+      <!-- TableId -->
+      <ng-container matColumnDef="tableId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Table</th>
+        <td mat-cell *matCellDef="let reservation">{{ reservation.tableId }}</td>
+      </ng-container>
+  
+      <!-- Cancel -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Cancel</th>
+        <td mat-cell *matCellDef="let reservation">
+          <button *ngIf="canCancel(reservation.startTime)" mat-icon-button color="warn" (click)="cancelReservation(reservation.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+          <p *ngIf="!canCancel(reservation.startTime)" style="opacity: 0.7;">passée</p>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <!-- Pagination -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons *ngIf="(dataSource?.filteredData ?? []).length != 0"></mat-paginator>
+  
+    <p style="text-align: center;" *ngIf="(dataSource?.filteredData ?? []).length === 0">Aucune réservation trouvée.</p>
+  </div>
+  

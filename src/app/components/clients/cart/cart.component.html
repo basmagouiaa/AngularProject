@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="cart-section" style="margin-top: 100px;">
+    <div class="cart-container">
+      <div class="cart-items">
+        <h3 class="cart__title">Your Cart</h3>
+          <!-- ✅ Afficher un message si le panier est vide -->
+        <div *ngIf="cartItems.length === 0" class="empty-cart-message">
+          <p style="color: #888; font-style: italic;">Votre panier est vide.</p>
+        </div>
+        <div class="cart-item" *ngFor="let item of cartItems">
+          <div class="cart-item__img">
+            <img [src]="item.imageUrl" [alt]="item.name">
+          </div>
+          <div class="cart-item__content">
+            <h6>{{ item.name }}</h6>
+            <p>Price: ${{ item.price }}</p>
+        
+            <div class="quantity-control">
+              <label>Quantity:</label>
+              <input type="number" [(ngModel)]="item.quantite"
+                     (blur)="updateQuantity(item.cartItemId, item.quantite)" min="0" />
+            </div>
+        
+            <p>Total: ${{ (item.price * item.quantite).toFixed(2) }}</p>
+            <button class="delete-btn" (click)="deleteItem(item.cartItemId)">Delete</button>
+          </div>
+        </div>
+        
+      </div>
+      <div class="cart-summary">
+        <h4>Order Summary</h4>
+        <p>Total Amount: ${{ calculateTotal() }}</p>
+        <button class="order-btn" (click)="placeOrder()">Commander</button>
+      </div>
+    </div>
+  </div>
+  

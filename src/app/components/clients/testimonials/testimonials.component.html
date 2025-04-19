@@ -1,0 +1,29 @@
+<section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-12 col-md-12 m-auto">
+          <div class="slider__wrapper d-flex align-items-center gap-5">
+            <div class="slider__content w-50">
+              <h2 class="mb-4" style="color: #fff;">What our Customers are saying</h2>
+              <ngx-slick-carousel class="carousel" [config]="settings">
+                <div ngxSlickItem *ngFor="let review of [1,2,3]" class="slide">
+                  <div class="single__testimonial">
+                    <p class="review__content">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat dolores excepturi...
+                    </p>
+                    <h6>John Doe</h6>
+                    <p class="web">Web Developer</p>
+                  </div>
+                </div>
+              </ngx-slick-carousel>
+            </div>
+  
+            <div class="slider__img w-50">
+              <img src="assets/fake-data/images/review1.png" class="w-100" alt="testimonial image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

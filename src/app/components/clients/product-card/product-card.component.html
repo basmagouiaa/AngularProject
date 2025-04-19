@@ -1,0 +1,25 @@
+<div class="single__product">
+    <div class="product__img">
+      <img [src]="item.imageUrl" [alt]="item.name" class="w-100" />
+    </div>
+  
+    <div class="product__content">
+      <div class="rating text-center">
+        <span><i class="ri-star-s-fill"></i></span>
+        <span><i class="ri-star-s-fill"></i></span>
+        <span><i class="ri-star-s-fill"></i></span>
+        <span><i class="ri-star-s-fill"></i></span>
+        <span><i class="ri-star-s-fill"></i></span>
+      </div>
+      <h4>{{ item.name }}</h4>
+      <div class="d-flex align-items-center justify-content-between">
+        <span class="price d-flex align-items-center">
+          Price: $<span>{{ item.price }}</span>
+        </span>
+        <span class="shopping__icon" (click)="addToCart()">
+          <i class="ri-shopping-cart-line"></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  

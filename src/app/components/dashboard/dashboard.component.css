@@ -133,3 +133,14 @@ div {
     margin-right: 10px; /* Espacement entre l'icône et le texte */
     color: rgb(245, 183, 10); /* Couleur de l'icône */
   }
+
+  .actions{
+    border: 1px solid rgb(245, 183, 10);
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+
+  .actions .btn:hover{
+    background-color: rgb(245, 183, 10);
+    color: white !important;
+  }

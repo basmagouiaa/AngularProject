@@ -31,7 +31,7 @@ export class TablesService {
   }
 
   getAvailableTables(): Observable<Table[]> {
-    return this.http.get<Table[]>(`${this.apiUrl}/available`);
+    return this.http.get<Table[]>(`http://localhost:5047/api/Table/available`);
   }
 }
 

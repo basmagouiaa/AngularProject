@@ -13,7 +13,7 @@
         </div>
       </a>
     </div>
-    <div class="nav">
+    <div class="nav" style="margin-top: -20px;">
       <div class="nav-item">
         <a routerLink="/dashboard" class="nav-item"><i class="fas fa-chair"></i><span>Dashboard</span></a>
       </div>
@@ -31,9 +31,9 @@
           <a routerLink="/dashboard/food" class="nav-item"><i class="fas fa-pizza-slice"></i><span>Food</span></a>
         </div>
         <div class="nav-item">
-          <a routerLink="/dashboard/reservation" class="nav-item"><i class="fas fa-calendar-check"></i><span>Reservation</span></a>
+          <a routerLink="/dashboard/reservations" class="nav-item"><i class="fas fa-calendar-check"></i><span>Reservation</span></a>
         </div>
-        <div class="nav-item">
+        <div class="nav-item mb-3" style="margin-bottom: 50px;">
           <a routerLink="/dashboard/order" class="nav-item"><i class="fas fa-cart-arrow-down"></i><span>Order</span></a>
         </div>
       </ng-container>
@@ -47,7 +47,7 @@
         <input type="text" placeholder="Search" />
       </div>
       <div class="actions">
-        
+        <button class="btn" (click)="handleLogout()" style="color: #F5B70A">Logout</button>
       </div>
     </div>
     <div class="dashboard-content">

@@ -1,23 +1,49 @@
-<header>
-    <div class="navbar">
-      <div class="logo d-flex text-danger">
-        <i class="material-icons me-3 mt-1">restaurant</i>
-        <h1>Bissou Food</h1>
+<header class="header">
+  <div class="container">
+    <div class="navigation">
+      <div class="logo">
+        <h2 class="d-flex align-items-center gap-1" style="color: #F5B70A">
+          <span><i class="ri-restaurant-2-line"></i></span> Bissou Food
+        </h2>
       </div>
-      <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Menu</a>
-        <a href="#">Recipes</a>
-        <a href="#">Contact</a>
+
+      <div class="nav__menu" #menuRef>
+        <div class="nav__list__wrapper d-flex align-items-center gap-5">
+          <ul class="nav__list">
+            <li class="nav__item" *ngFor="let link of navLinks">
+              <a [routerLink]="link.url" (click)="toggleMenu()">{{ link.display }}</a>
+            </li>
+            <li class="nav__item">
+              <a href="#choose" >About</a>
+          </ul>
+
+          <div class="menu__right">
+            <div class="custom_search">
+              <input type="text" placeholder="search item..." />
+              <span><i class="ri-search-line"></i></span>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="search-bar">
-        <input type="text" placeholder="search item..." />
-        <button>Q</button>
+
+      <div class="d-flex align-items-center" style="gap: 10px; padding: 10px">
+        <a routerLink="/cart">
+          <span class="cart__icon">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="badge">{{ calculateTotalItems() }}</span>
+          </span>
+        </a>
+        <button class="btn" *ngIf="user; else loginBtn" (click)="handleLogout()" style="color: #F5B70A">Logout</button>
+        <ng-template #loginBtn>
+          <a routerLink="/login">
+            <button class="btn" style="color: #F5B70A">Login</button>
+          </a>
+        </ng-template>
       </div>
-      <div class="cart-icon">
-        <i class="material-icons">shopping_cart</i> <!-- Icône de panier Material Icons -->
-        <span class="cart-count">{{ cartItemsCount }}</span> <!-- Nombre d'articles -->
+
+      <div class="mobile_menu">
+        <span><i class="ri-menu-line" (click)="toggleMenu()"></i></span>
       </div>
     </div>
-  </header>
+  </div>
+</header>

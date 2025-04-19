@@ -1,0 +1,177 @@
+.order-details-container {
+    padding: 2rem;
+    background: #15132b;
+    color: #fff;
+    border-radius: 16px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h2 {
+    color: #F5B70a;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+  }
+  
+  h3 {
+    color: #F5B70a;
+    margin: 1.5rem 0;
+    font-size: 1.4rem;
+  }
+  
+  .order-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .order-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .total-amount {
+    font-size: 1.2rem;
+    color: #F5B70a;
+    margin-top: 1rem !important;
+  }
+  
+  .divider {
+    border-color: rgba(245, 183, 10, 0.2);
+    margin: 1.5rem 0;
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .single__product {
+    background-color: #141124;
+    border-radius: 10px;
+    overflow: hidden;
+    animation: animate 0.5s ease-in;
+    transition: all 0.3s ease;
+  }
+  
+  .single__product:hover {
+    box-shadow: 5px 5px 10px -5px #F5B70a;
+    transform: translateY(-5px);
+  }
+  
+  .product__img {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .product__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .single__product:hover .product__img img {
+    transform: scale(1.05);
+  }
+  
+  .product__content {
+    padding: 15px;
+  }
+  
+  .product__content h4 {
+    color: #F5B70a;
+    text-align: center;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    min-height: 3rem;
+  }
+  
+  .rating {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+  }
+  
+  .rating span i {
+    color: #F5B70a;
+    font-size: 0.9rem;
+  }
+  
+  .product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-top: 10px;
+  }
+  
+  .price, .quantity, .item-total {
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  
+  .item-total {
+    font-weight: 500;
+    color: #F5B70a;
+  }
+  
+  .status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+  
+  .status-processing {
+    background-color: rgba(255, 152, 0, 0.1);
+    color: #ff9800;
+  }
+  
+  .status-confirmed {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #4caf50;
+  }
+  
+  .status-shipped {
+    background-color: rgba(33, 150, 243, 0.1);
+    color: #2196f3;
+  }
+  
+  .status-delivered {
+    background-color: rgba(103, 58, 183, 0.1);
+    color: #673ab7;
+  }
+  
+  .status-cancelled {
+    background-color: rgba(244, 67, 54, 0.1);
+    color: #f44336;
+  }
+  
+  .status-unknown {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
+  }
+  
+  .loading-spinner .mat-spinner circle {
+    stroke: #F5B70a;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: scale(0.9);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }

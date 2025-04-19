@@ -1,0 +1,25 @@
+.reservation-container {
+    padding: 2rem;
+    background: #15132b;
+    color: #fff;
+    border-radius: 16px;
+  }
+  
+  .mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+  table {
+    width: 100%;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    color: white;
+  }
+  
+  .mat-icon-button {
+    color: #ff5252;
+  }
+  

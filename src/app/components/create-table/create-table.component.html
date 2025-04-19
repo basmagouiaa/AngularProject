@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>{{ isEditMode ? 'Edit Table' : 'Create Table' }}</h2>
-<mat-dialog-content>
+<mat-dialog-content >
   <form [formGroup]="tableForm">
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Number</mat-label>
@@ -28,6 +28,7 @@
 <mat-dialog-actions align="end">
   <button mat-button (click)="onCancel()">Cancel</button>
   <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="tableForm.invalid">
+    <mat-icon>{{ isEditMode ? 'save' : 'add' }}</mat-icon>
     {{ isEditMode ? 'Update' : 'Create' }}
   </button>
 </mat-dialog-actions>

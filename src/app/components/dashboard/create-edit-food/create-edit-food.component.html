@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>{{ isEditMode ? 'Modifier un aliment' : 'Créer un aliment' }}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="foodForm">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Nom</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="foodForm.get('name')?.hasError('required')">Le nom est requis.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Prix</mat-label>
+      <input matInput type="number" formControlName="price" required />
+      <mat-error *ngIf="foodForm.get('price')?.hasError('required')">Le prix est requis.</mat-error>
+      <mat-error *ngIf="foodForm.get('price')?.hasError('min')">Le prix doit être supérieur à 0.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>URL de l'image</mat-label>
+      <input matInput formControlName="imageUrl" required />
+      <mat-error *ngIf="foodForm.get('imageUrl')?.hasError('required')">L'URL de l'image est requise.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Catégorie</mat-label>
+      <mat-select formControlName="categorieId" required>
+        <mat-option *ngFor="let category of categories" [value]="category.id">
+          {{ category.name }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="foodForm.get('categorieId')?.hasError('required')">La catégorie est requise.</mat-error>
+    </mat-form-field>
+  </form>
+
+  <div *ngIf="foodForm.get('imageUrl')?.value">
+    <h3>Image de l'aliment :</h3>
+    <img [src]="foodForm.get('imageUrl')?.value" alt="Image de l'aliment" width="100" height="100" />
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onCancel()">Annuler</button>
+  <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="foodForm.invalid">
+    <mat-icon>{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+    {{ isEditMode ? 'Mettre à jour' : 'Créer' }}
+  </button>
+</mat-dialog-actions>

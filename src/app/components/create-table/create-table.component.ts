@@ -6,7 +6,8 @@ import { TablesService } from 'src/services/tables.service';
 @Component({
   selector: 'app-create-table',
   templateUrl: './create-table.component.html',
-  styleUrls: ['./create-table.component.css']
+  styleUrls: ['./create-table.component.css'],
+  
 })
 export class CreateTableComponent implements OnInit {
   tableForm: FormGroup;
@@ -35,7 +36,10 @@ export class CreateTableComponent implements OnInit {
 
   onSubmit(): void {
     if (this.tableForm.valid) {
-      const table = this.tableForm.value;
+      const table = { ...this.tableForm.value };
+      if (!this.isEditMode) {
+        delete table.id;
+      }
       if (this.isEditMode) {
         this.tablesService.updateTable(table).subscribe({
           next: () => this.dialogRef.close(true),

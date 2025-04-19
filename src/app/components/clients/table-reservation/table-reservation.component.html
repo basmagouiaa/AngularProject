@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<div class="choose-us-section" style="margin-top: 100px;">
+    <h2 class="section-title">Available Tables</h2>
+  
+    <div class="tables-grid">
+      <div
+        *ngFor="let table of tables"
+        class="table-container"
+        [class.selected]="selectedTable?.id === table.id"
+        (click)="handleTableClick(table)"
+      >
+        <div
+          class="table-box"
+          [ngClass]="{
+            'available': table.status === 'available',
+            'occupied': table.status === 'occupied',
+            'selected': selectedTable?.id === table.id
+          }"
+        >
+          Table {{ table.number }}
+        </div>
+        <div
+          *ngFor="let chair of [].constructor(table.capacity); let i = index"
+          class="chair"
+          [ngStyle]="getChairStyles(i, table.capacity)"
+        ></div>
+      </div>
+    </div>
+  
+    <div *ngIf="selectedTable" class="reservation-form">
+      <h4>Reserve Table {{ selectedTable.number }}</h4>
+      <label for="startTime">Start Time</label>
+<input
+  type="datetime-local"
+  id="startTime"
+  [(ngModel)]="startTime"
+  [min]="minDateTime"
+/>
+
+<label for="endTime">End Time</label>
+<input
+  type="datetime-local"
+  id="endTime"
+  [(ngModel)]="endTime"
+  [min]="startTime || minDateTime"
+/>
+
+  
+      <button (click)="handleReservation()">Reserve</button>
+    </div>
+  </div>
+  

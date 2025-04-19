@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+    <h2>📊 Tableau de bord des réservations</h2>
+  
+    <div class="button-group">
+      <button (click)="activeChart = 'tables'" [class.active]="activeChart === 'tables'">Tables</button>
+      <button (click)="activeChart = 'orders'" [class.active]="activeChart === 'orders'">Commandes</button>
+      <button (click)="activeChart = 'weekly'" [class.active]="activeChart === 'weekly'">Hebdomadaire</button>
+    </div>
+  
+    <div class="chart-grid">
+      <div class="chart-card" *ngIf="activeChart === 'tables'">
+        <h3>Réservations par table</h3>
+        <canvas baseChart
+                [data]="reservationsByTableChartConfig.data"
+                [type]="reservationsByTableChartConfig.type"
+                [options]="reservationsByTableChartConfig.options">
+        </canvas>
+      </div>
+  
+      <div class="chart-card" *ngIf="activeChart === 'weekly'">
+        <h3>Évolution hebdomadaire</h3>
+        <canvas baseChart
+                [data]="reservationsLineChartConfig.data"
+                [type]="reservationsLineChartConfig.type"
+                [options]="reservationsLineChartConfig.options">
+        </canvas>
+      </div>
+  
+      <div class="chart-card or" *ngIf="activeChart === 'orders'">
+        <h3>Plats populaires</h3>
+        <canvas baseChart
+                [data]="popularFoodsChart.data"
+                [type]="popularFoodsChart.type"
+                [options]="popularFoodsChart.options">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  
