@@ -11,14 +11,14 @@ export const authGuard: CanActivateFn = (route, state) => {
     return router.parseUrl('/login');
   }
 
-  const role = authService.getUserRole();
+  // const role = authService.getUserRole();
 
-  if (role === 'Client') {
-    return router.parseUrl('/');
-  }else if (role === 'Admin') {
-    return router.parseUrl('/dashboard');
+  // if (role === 'Client') {
+  //   return router.parseUrl('/');
+  // }else if (role === 'Admin') {
+  //   return router.parseUrl('/dashboard');
 
-  }
+  // }
 
   return router.parseUrl('/login');
 };

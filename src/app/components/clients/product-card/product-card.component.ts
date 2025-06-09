@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CartService } from 'src/services/cart.service';
 
 @Component({
@@ -8,8 +9,8 @@ import { CartService } from 'src/services/cart.service';
 })
 export class ProductCardComponent {
   @Input() item: any;
+  constructor(private cartService: CartService, private router: Router) {}
 
-  constructor(private cartService: CartService) {}
 
   addToCart(): void {
     const user = JSON.parse(localStorage.getItem("user") || '{}');
@@ -21,7 +22,9 @@ export class ProductCardComponent {
     this.cartService.getOrCreateCart(user.id).subscribe({
       next: (cart) => {
         this.cartService.addItemToCart(cart.id, this.item.id, 1).subscribe({
-          next: () => alert("Item added to cart successfully!"),
+          next: () => {alert("Item added to cart successfully!")
+            this.router.navigate(['/cart']);
+          },
           error: () => alert("Failed to add item to cart.")
         });
       },

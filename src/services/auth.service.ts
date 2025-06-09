@@ -39,6 +39,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem('user');
 // La méthode .next(valeur) permet d'émettre une nouvelle valeur dans un BehaviorSubject, ce qui : ✅ Met à jour la valeur actuelle stockée.
 // ✅ Informe tous les abonnés qu'une nouvelle valeur est disponible.
     this.authStatus.next(false);

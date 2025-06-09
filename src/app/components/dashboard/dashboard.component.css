@@ -96,6 +96,7 @@ div {
     background-color: #f4f7fe;
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
   }
   
   .navbar {

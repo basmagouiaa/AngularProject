@@ -55,11 +55,11 @@ export class CartComponent  {
     });
   }
 
-  handleQuantityChange(cartItemId: number, value: number): void {
-    this.cartItems = this.cartItems.map(item =>
-      item.cartItemId === cartItemId ? { ...item, quantite: value } : item
-    );
-  }
+  // handleQuantityChange(cartItemId: number, value: number): void {
+  //   this.cartItems = this.cartItems.map(item =>
+  //     item.cartItemId === cartItemId ? { ...item, quantite: value } : item
+  //   );
+  // }
 
   calculateTotal(): string {
     return this.cartItems.reduce((acc, item) => acc + item.price * item.quantite, 0).toFixed(2);

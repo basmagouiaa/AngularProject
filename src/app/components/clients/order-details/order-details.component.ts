@@ -104,17 +104,17 @@ export class OrderDetailsComponent implements OnInit {
     return method === 1 ? 'Carte bancaire' : 'Autre méthode';
   }
   // Dans votre composant TypeScript
-getFoodImage(foodId: number): string {
-  const food: Food | undefined = this.food?.find((f: Food) => Number(f.id) === foodId);
-  return food?.imageUrl || '';
-}
+// getFoodImage(foodId: number): string {
+//   const food: Food | undefined = this.food?.find((f: Food) => Number(f.id) === foodId);
+//   return food?.imageUrl || '';
+// }
 
-getFoodName(foodId: number): string {
-  const food: Food | undefined = this.food?.find((f: Food) => Number(f.id) === foodId);
-  return food?.name || '';
-}
+// getFoodName(foodId: number): string {
+//   const food: Food | undefined = this.food?.find((f: Food) => Number(f.id) === foodId);
+//   return food?.name || '';
+// }
 
-getFoodDetails(foodId: number): any {
-  const food: Food | undefined = this.food?.find((f: Food) => Number(f.id) === foodId);
-}
+// getFoodDetails(foodId: number): any {
+//   const food: Food | undefined = this.food?.find((f: Food) => Number(f.id) === foodId);
+// }
 }

@@ -31,20 +31,20 @@
     <div *ngIf="selectedTable" class="reservation-form">
       <h4>Reserve Table {{ selectedTable.number }}</h4>
       <label for="startTime">Start Time</label>
-<input
-  type="datetime-local"
-  id="startTime"
-  [(ngModel)]="startTime"
-  [min]="minDateTime"
-/>
+      <input
+        type="datetime-local"
+        id="startTime"
+        [(ngModel)]="startTime"
+        [min]="minDateTime"
+      />
 
-<label for="endTime">End Time</label>
-<input
-  type="datetime-local"
-  id="endTime"
-  [(ngModel)]="endTime"
-  [min]="startTime || minDateTime"
-/>
+      <label for="endTime">End Time</label>
+      <input
+        type="datetime-local"
+        id="endTime"
+        [(ngModel)]="endTime"
+        [min]="startTime || minDateTime"
+      />
 
   
       <button (click)="handleReservation()">Reserve</button>
